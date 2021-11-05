@@ -5,7 +5,6 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import ru.gofit.dto.FeedbackDto;
-import ru.gofit.dto.FeedbackRequest;
 import ru.gofit.entities.Feedback;
 import ru.gofit.exceptions.DataNotFoundException;
 import ru.gofit.mappers.FeedbackMapper;
@@ -47,8 +46,8 @@ public class FeedbackServiceImpl implements FeedbackService {
     }
 
     @Override
-    public FeedbackDto save(FeedbackRequest feedbackRequest) {
-        Feedback feedback = feedbackMapper.mapDtoToEntity(feedbackRequest);
+    public FeedbackDto save(FeedbackDto feedbackDto) {
+        Feedback feedback = feedbackMapper.mapDtoToEntity(feedbackDto);
         return feedbackMapper.mapEntityToDto(feedbackRepository.save(feedback));
     }
 

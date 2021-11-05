@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-@ApiModel(description = "Dto представление сущности Пользователь")
+@ApiModel(description = "Dto представление сущности Данные обратной связи")
 public class FeedbackDto {
 
     @ApiModelProperty(notes = "Имя, до 50 символов",

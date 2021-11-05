@@ -6,8 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
-
-
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +22,7 @@ public class ClientProfileDto {
 
     @Positive
     @NotBlank(message = DATA_NOT_BLANK)
-    @ApiModelProperty(notes = "Идентификатор пользователя", dataType = "", example = "Иван Сидоров", required = true, position = 0)
+    @ApiModelProperty(notes = "Идентификатор пользователя", dataType = "Long", example = "1", required = true, position = 0)
     private Long userId;
 
     @ApiModelProperty(notes = "Информация о себе, до 500 символов",

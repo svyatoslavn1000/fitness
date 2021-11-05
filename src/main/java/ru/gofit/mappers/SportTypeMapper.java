@@ -3,17 +3,16 @@ package ru.gofit.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
-import ru.gofit.dto.SportTypeRqDto;
-import ru.gofit.dto.SportTypeRsDto;
+import ru.gofit.dto.SportTypeDto;
 import ru.gofit.entities.SportType;
 
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface SportTypeMapper {
 
-    SportTypeRsDto mapEntityToDto(SportType entity);
+    SportTypeDto mapEntityToDto(SportType entity);
 
-    SportType mapDtoToEntity(SportTypeRqDto sportTypeRqDto);
+    SportType mapDtoToEntity(SportTypeDto sportTypeDto);
 
-    SportType update(@MappingTarget SportType entity, SportTypeRqDto sportTypeRqDto);
+    SportType update(@MappingTarget SportType entity, SportTypeDto sportTypeDto);
 }

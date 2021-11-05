@@ -20,11 +20,6 @@ import static ru.gofit.helpers.Messages.DATA_NOT_BLANK;
 @ApiModel(description = "Dto представление сущности Абонемент")
 public class SubscriptionDto {
 
-    //TODO проверить все типы переменных входящих полей и их позиции,
-    // добавить недостающие поля, enum типы привести к String
-    // сложные внутренние типы привести к простым
-    // добавить валидацию полей согласно ограничениям из БД
-
     @Positive
     @ApiModelProperty(notes = "Уникальный идентификатор Абонемента",
             dataType = "Long", example = "1", required = true, position = 0)

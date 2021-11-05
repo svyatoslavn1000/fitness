@@ -8,8 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.gofit.dto.SportTypeRqDto;
-import ru.gofit.dto.SportTypeRsDto;
+import ru.gofit.dto.SportTypeDto;
 import ru.gofit.services.api.SportTypeService;
 
 import javax.validation.Valid;
@@ -24,27 +23,27 @@ public class SportTypeController {
 
     @ApiOperation("Запрос списка видов спорта")
     @GetMapping
-    public Page<SportTypeRsDto> getAll(Pageable pageable) {
+    public Page<SportTypeDto> getAll(Pageable pageable) {
         return sportTypeService.getAll(pageable);
     }
 
     @ApiOperation("Запрос вида спорта по id")
     @GetMapping("/{id}")
-    public SportTypeRsDto getById(@ApiParam(name = "id", value = "ID вида спорта") @PathVariable Short id) {
+    public SportTypeDto getById(@ApiParam(name = "id", value = "ID вида спорта") @PathVariable Short id) {
         return sportTypeService.getById(id);
     }
 
     @ApiOperation("Создать вид спорта")
     @PostMapping
-    public SportTypeRsDto save(@Valid @RequestBody SportTypeRqDto sportTypeRqDto) {
-        return sportTypeService.save(sportTypeRqDto);
+    public SportTypeDto save(@Valid @RequestBody SportTypeDto sportTypeDto) {
+        return sportTypeService.save(sportTypeDto);
     }
 
     @ApiOperation("Обновить вид спорта")
     @PutMapping("/{id}")
-    public SportTypeRsDto update(@ApiParam(name = "id", value = "ID вида спорта") @PathVariable Short id,
-                                 @RequestBody SportTypeRqDto sportTypeRqDto) {
-        return sportTypeService.update(id, sportTypeRqDto);
+    public SportTypeDto update(@ApiParam(name = "id", value = "ID вида спорта") @PathVariable Short id,
+                                 @RequestBody SportTypeDto sportTypeDto) {
+        return sportTypeService.update(id, sportTypeDto);
     }
 
     @ApiOperation("Удалить вид спорта")

@@ -22,7 +22,6 @@ public class CoachProfileDto {
 
     @Positive
     @NotBlank(message = DATA_NOT_BLANK)
-    @Size(max = 1024)
     @ApiModelProperty(notes = " тренера", dataType = "", example = "", required = true, position = 0)
     private Long id;
 

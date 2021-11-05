@@ -5,21 +5,23 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.gofit.entities.ClientProfile;
-import ru.gofit.entities.Subscription;
+import ru.gofit.entities.CoachProfile;
+
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 import static ru.gofit.helpers.Messages.DATA_NOT_BLANK;
 
 /**
- * Dto представление сущности Транзакции клиента
+ * Dto представление сущности Исходящие транзакции тренера
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-@ApiModel(description = "Dto представление сущности Входящие Транзакции клиента")
-public class ClientTransactionDto {
+@ApiModel(description = "Dto представление сущности Исходящие транзакции тренера")
+public class OutcomingCoachTransactionsDto {
     @Positive
     @NotBlank(message = DATA_NOT_BLANK)
     @ApiModelProperty(notes = "Идентификатор транзакции", dataType = "Long",
@@ -31,11 +33,11 @@ public class ClientTransactionDto {
             dataType = "LocalTime", example = "2021:10:12:10:15", required = true, position = 1)
     private LocalDateTime dateTime;
 
-    @ApiModelProperty(notes = "Профиль клиента",
+    @ApiModelProperty(notes = "Профиль тренера",
             dataType = "CoachProfile",  required = true, position = 2)
-    private ClientProfile clientProfile;
+    private CoachProfile coachProfile;
 
-    @ApiModelProperty(notes = "Пакет тренировок, для покупки которого осуществлен перевод",
-            dataType = "SubscriptionDto",  required = true, position = 3)
-    private Subscription subscription;
+    @ApiModelProperty(notes = "Денежный счет, на который осуществлен исходящий перевод",
+            dataType = "String",  required = true, position = 3)
+    private String account;
 }

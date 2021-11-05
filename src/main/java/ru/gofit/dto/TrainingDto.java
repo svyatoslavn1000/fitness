@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.validation.constraints.Positive;
 import java.time.LocalDateTime;
 
@@ -27,14 +26,14 @@ public class TrainingDto {
             dataType = "String",  example = "тренировка хатха-йога", required = true, position = 1)
     private String trainingName;
 
-    @DateTimeFormat(pattern="HH:mm")
+    @DateTimeFormat(pattern="yyyy:MM:dd:HH:mm")
     @ApiModelProperty(notes = "Время начала тренировки",
-            dataType = "LocalTime", example = "10:15", required = true, position = 2)
+            dataType = "LocalTime", example = "2021:10:12:11:15", required = true, position = 2)
     private LocalDateTime startDateTime;
 
-    @DateTimeFormat(pattern="HH:mm")
+    @DateTimeFormat(pattern="yyyy:MM:dd:HH:mm")
     @ApiModelProperty(notes = "Время окончания тренировки",
-            dataType = "LocalTime", example = "10:15", required = true, position = 3)
+            dataType = "LocalTime", example = "2021:10:12:10:15", required = true, position = 3)
     private LocalDateTime endDateTime;
 
     @ApiModelProperty(notes = "Вид спорта",

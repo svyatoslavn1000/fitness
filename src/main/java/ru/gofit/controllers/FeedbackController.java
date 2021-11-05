@@ -11,7 +11,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import ru.gofit.dto.ErrorDto;
 import ru.gofit.dto.FeedbackDto;
-import ru.gofit.dto.FeedbackRequest;
 import ru.gofit.services.api.FeedbackService;
 
 import javax.validation.Valid;
@@ -39,8 +38,8 @@ public class FeedbackController {
             @ApiResponse(code = 200, message = SUCCESSFUL_REQUEST),
             @ApiResponse(code = 400, message = BAD_REQUEST, response = ErrorDto.class)
     })
-    public ResponseEntity<FeedbackDto> createFeedback(@Valid @RequestBody FeedbackRequest request) {
-        return ResponseEntity.ok(feedbackService.save(request));
+    public ResponseEntity<FeedbackDto> createFeedback(@Valid @RequestBody FeedbackDto feedbackDto) {
+        return ResponseEntity.ok(feedbackService.save(feedbackDto));
     }
 
     @Secured(value = {ROLE_ADMIN})

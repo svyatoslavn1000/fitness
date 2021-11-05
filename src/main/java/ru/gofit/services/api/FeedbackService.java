@@ -2,7 +2,6 @@ package ru.gofit.services.api;
 
 import org.springframework.security.core.Authentication;
 import ru.gofit.dto.FeedbackDto;
-import ru.gofit.dto.FeedbackRequest;
 
 import java.util.List;
 
@@ -29,10 +28,10 @@ public interface FeedbackService {
     /**
      * Создать новые данные обратной связи
      *
-     * @param feedbackRequest запрос, содержащий данные об обратной связи
+     * @param feedbackDto запрос, содержащий данные об обратной связи
      * @return данные, сохраненные в репозитории
      */
-    FeedbackDto save(FeedbackRequest feedbackRequest);
+    FeedbackDto save(FeedbackDto feedbackDto);
 
     /**
      * Удалить данные обратной связи по идентификатору запроса

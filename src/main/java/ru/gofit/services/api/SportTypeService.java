@@ -2,8 +2,7 @@ package ru.gofit.services.api;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import ru.gofit.dto.SportTypeRqDto;
-import ru.gofit.dto.SportTypeRsDto;
+import ru.gofit.dto.SportTypeDto;
 
 public interface SportTypeService {
 
@@ -13,7 +12,7 @@ public interface SportTypeService {
      * @param pageable количество страниц и количество видов спорта на странице
      * @return список видов спорта
      */
-    Page<SportTypeRsDto> getAll(Pageable pageable);
+    Page<SportTypeDto> getAll(Pageable pageable);
 
     /**
      * Найти вид спорта по его идентификатору
@@ -21,7 +20,7 @@ public interface SportTypeService {
      * @param id идентификатор вида спорта
      * @return вид спорта
      */
-    SportTypeRsDto getById(Short id);
+    SportTypeDto getById(Short id);
 
     /**
      * Создать новый вид спорта
@@ -29,16 +28,16 @@ public interface SportTypeService {
      * @param sportTypeRqDto запрос с данными вида спорта
      * @return новый вид спорта, сохраненный в репозитории
      */
-    SportTypeRsDto save(SportTypeRqDto sportTypeRqDto);
+    SportTypeDto save(SportTypeDto sportTypeRqDto);
 
     /**
      * Изменить описание вида спорта
      *
      * @param id             вида спорта
-     * @param sportTypeRqDto изиененное описание вида спорта
+     * @param sportTypeDto изиененное описание вида спорта
      * @return измененный вид спорта, сохраненный в репозитории
      */
-    SportTypeRsDto update(Short id, SportTypeRqDto sportTypeRqDto);
+    SportTypeDto update(Short id, SportTypeDto sportTypeDto);
 
     /**
      * Удалить вид спорта по его идентификатору
